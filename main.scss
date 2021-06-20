@@ -1,0 +1,15 @@
+.menu {
+  &__list {
+    position: absolute;
+    top: -100px;
+    list-style: none;
+    transition: .3s;
+  }
+  &__link {
+    text-decoration: none;
+    color: black;
+  }
+}
+.active {
+  top: 0;
+}
