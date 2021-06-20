@@ -1,15 +1,54 @@
+.burger {
+  &__cell {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    // background-color: black;
+  }
+  &__menu > span,
+  &__menu > span::after,
+  &__menu > span::before {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    transition: .3s;
+  }
+  &__menu > span::after {
+    content: "";
+    top: 17px;
+  }
+  &__menu > span::before {
+    content: "";
+    top: 8px;
+  }
+}
+
+.cross > span{
+  background-color: white;
+}
+.cross > span::after {
+  transform: translateY(-5px) rotate(-45deg);
+}
+.cross > span::before {
+  transform: translateY(5px) rotate(45deg);
+}
+
 .menu {
   &__list {
     position: absolute;
     top: -100px;
     list-style: none;
-    transition: .3s;
+    transition: 0.3s;
   }
   &__link {
     text-decoration: none;
     color: black;
   }
 }
+
 .active {
   top: 0;
 }
