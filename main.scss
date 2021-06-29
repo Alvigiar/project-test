@@ -1,3 +1,5 @@
+// burgermenu
+
 .burger {
   &__cell {
     position: relative;
@@ -14,7 +16,7 @@
     width: 100%;
     height: 2px;
     background-color: red;
-    transition: .3s;
+    transition: 0.3s;
   }
   &__menu > span::after {
     content: "";
@@ -26,7 +28,7 @@
   }
 }
 
-.cross > span{
+.cross > span {
   background-color: white;
 }
 .cross > span::after {
@@ -51,4 +53,31 @@
 
 .active {
   top: 0;
+}
+
+// checklist
+
+.checklist {
+  &__container{
+    width: 250px;
+    height: 250px;
+    background-color: cadetblue;
+  }
+  &__box {
+    display: grid;
+  }
+  &__cell{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    // display: grid;
+    // grid-template-columns: 1fr 200px;
+  }
+  &__text{
+    min-width: 200px;
+  }
+  &__button{
+    width: 15%;
+  }
 }
