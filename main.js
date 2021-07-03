@@ -154,3 +154,51 @@ import './main.scss'
 
 // 2 вариант этой же задачи
 
+// 2 = 0
+// 2 - 4 = 20
+// 5 - 7 = 30
+// 8 > .. = 40
+
+// const box = document.querySelector('.price-box')
+// const btn = document.querySelector('.price-box__btn')
+// btn.addEventListener('click', () => {
+//   const floor = document.querySelector('.price-box__floor').value
+//   const floorPrice = (floor) => {
+//     let price = 0
+//     if (floor >= 8) {
+//       return 40
+//     } else if (floor >= 5) {
+//       return 30
+//     } else if (floor >= 2) {
+//       return 20
+//     }
+//     return price
+//   }
+//   const priceSum = (floor) => {
+//     let sum = 0
+//     for (let i = 0; i <= floor; ++i) {
+//       sum = sum + floorPrice(i)
+//     }
+//     return sum
+//   }
+//   console.log(priceSum(floor))
+//   let res = document.createElement('div')
+//   res.className = 'test'
+//   res.innerHTML = `${priceSum(floor)}`
+//   document.body.append('Вам необходимо будет оплатить: ' + `${priceSum(floor)}` + ' денег')
+// })
+// нет удаления предыдущего элемента
+
+// 3 
+
+let number = 5
+function randomNumb() {
+  let rand = (Math.random() * 10) +1
+  return Math.floor(rand)
+}
+console.log(randomNumb())
+if (number == randomNumb()) {
+  console.log('nice')
+} else {
+  console.log('not nice')
+}
