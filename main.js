@@ -191,14 +191,61 @@ import './main.scss'
 
 // 3 
 
-let number = 5
-function randomNumb() {
-  let rand = (Math.random() * 10) +1
-  return Math.floor(rand)
-}
-console.log(randomNumb())
-if (number == randomNumb()) {
-  console.log('nice')
-} else {
-  console.log('not nice')
-}
+// const buttonRoll = document.querySelector('.random-number__random-roll')
+// buttonRoll.addEventListener('click', function () {
+//   let getNumb = document.querySelector('.random-number__get-number').value
+//   let getRandom = Math.floor((Math.random() * 10) + 1)
+//   console.log(getRandom)
+//   if (getNumb == getRandom) {
+//     console.log('nice')
+//   } else {
+//     console.log('not')
+//   }
+// })
+
+// 4
+
+// let btnCreate = document.querySelector('.even-odd__create')
+// btnCreate.addEventListener('click', () => {
+//   let getNumber = document.querySelector('.even-odd__get-numb').value
+//   let result = getNumber % 2
+//   if (result == 0) {
+//     document.body.append(`Число ${getNumber} четное`)
+//   } else {
+//     document.body.append(`Число ${getNumber} нечетное`)
+//   }
+// })
+
+// 6
+
+// 10 000 tax 10%
+// 30 000 tax 15%
+// 50 000 tax 17,5%
+// 70 000 tax 20%
+
+let btn = document.querySelector('.salary__button')
+btn.addEventListener('click', function () {
+  let salary = document.querySelector('.salary__numb').value
+  let summ
+  function tax(salary) {
+    if (salary >= 70000) {
+      summ = (salary * 20) / 100
+      return summ
+    } else if (salary >= 50000) {
+      summ = (salary * 17.5) / 100
+      return summ
+    } else if (salary >= 30000) {
+      summ = (salary * 15) / 100
+      return summ
+    } else if (salary >= 10000) {
+      summ = (salary * 10) / 100
+      return summ
+    } else
+      return ('Это в долларах?')
+  }
+  if (salary >= 10000) {
+    document.body.append(`Плоти налог в размере ${tax(salary)} денег`)
+  } else {
+    document.body.append('Это в долларах?')
+  }
+})
