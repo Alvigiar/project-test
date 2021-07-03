@@ -99,55 +99,58 @@ import './main.scss'
 
 // 2
 
-let floor = +prompt('Floor')
-// let floor = 10
-let stepFloor2_4 = 20
-let stepFloor5_7 = 30
-let stepFloor8_10 = 40
+// let floor = +prompt('Floor')
+// // let floor = 10
+// let stepFloor2_4 = 20
+// let stepFloor5_7 = 30
+// let stepFloor8_10 = 40
 
-let floor2 = +stepFloor2_4
-let floor3 = +stepFloor2_4 * 2
-let floor4 = +stepFloor2_4 * 3
+// let floor2 = +stepFloor2_4
+// let floor3 = +stepFloor2_4 * 2
+// let floor4 = +stepFloor2_4 * 3
 
-let floor5 = +floor4 + +stepFloor5_7
-let floor6 = +floor4 + +stepFloor5_7 * 2
-let floor7 = +floor4 + +stepFloor5_7 * 3
+// let floor5 = +floor4 + +stepFloor5_7
+// let floor6 = +floor4 + +stepFloor5_7 * 2
+// let floor7 = +floor4 + +stepFloor5_7 * 3
 
-let floor8 = +floor7 + +stepFloor8_10
-let floor9 = +floor7 + +stepFloor8_10 * 2
-let floor10 = +floor7 + +stepFloor8_10 * 3
+// let floor8 = +floor7 + +stepFloor8_10
+// let floor9 = +floor7 + +stepFloor8_10 * 2
+// let floor10 = +floor7 + +stepFloor8_10 * 3
 
-switch (floor) {
-  case 2:
-    console.log(floor2)
-    break;
-  case 3:
-    console.log(floor3)
-    break;
-  case 4:
-    console.log(floor4)
-    break;
-  case 5:
-    console.log(floor5)
-    break;
-  case 6:
-    console.log(floor6)
-    break;
-  case 7:
-    console.log(floor7)
-    break;
-  case 8:
-    console.log(floor8)
-    break;
-  case 9:
-    console.log(floor9)
-    break;
-  case 10:
-    console.log(floor10)
-    break;
+// switch (floor) {
+//   case 2:
+//     console.log(floor2)
+//     break;
+//   case 3:
+//     console.log(floor3)
+//     break;
+//   case 4:
+//     console.log(floor4)
+//     break;
+//   case 5:
+//     console.log(floor5)
+//     break;
+//   case 6:
+//     console.log(floor6)
+//     break;
+//   case 7:
+//     console.log(floor7)
+//     break;
+//   case 8:
+//     console.log(floor8)
+//     break;
+//   case 9:
+//     console.log(floor9)
+//     break;
+//   case 10:
+//     console.log(floor10)
+//     break;
 
-    
-  default:
-    console.log('-')
-    break;
-}
+
+//   default:
+//     console.log('-')
+//     break;
+// }
+
+// 2 вариант этой же задачи
+
