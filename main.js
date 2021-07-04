@@ -252,44 +252,56 @@ import './main.scss'
 
 // 7 
 
-const btn = document.querySelector('.composite__btn')
-let fan = document.querySelector('#fan')
-let com = document.querySelector('#com')
-let det = document.querySelector('#det')
-let hor = document.querySelector('#hor')
-const book1 = '"Л.Н. Толстой. Война и мир"'
-const book2 = '"Джоан Роулинг.Гарри Поттер"'
-const book3 = '"Братья Стругацкие. Понедельник начинается в субботу."'
-const book4 = '"Агата Кристи. Вечеринка в Хэллоуин."'
-const book5 = '"Джонатан Страуд. Кричащая лестница."'
-const book6 = '"Диана Маш. Заноза для драконьего военачальника"'
-const book7 = '"Кирилл Круганский. Смешно или страшно."'
-const book8 = '"Стивен Кинг. Мизери."'
-const book9 = '"Эдгар По. Очень страшные истории."'
-const book10 = '"А. Маринина. Безупречная репутация"'
+// const btn = document.querySelector('.composite__btn')
+// let fan = document.querySelector('#fan')
+// let com = document.querySelector('#com')
+// let det = document.querySelector('#det')
+// let hor = document.querySelector('#hor')
+// const book1 = '"Л.Н. Толстой. Война и мир"'
+// const book2 = '"Джоан Роулинг.Гарри Поттер"'
+// const book3 = '"Братья Стругацкие. Понедельник начинается в субботу."'
+// const book4 = '"Агата Кристи. Вечеринка в Хэллоуин."'
+// const book5 = '"Джонатан Страуд. Кричащая лестница."'
+// const book6 = '"Диана Маш. Заноза для драконьего военачальника"'
+// const book7 = '"Кирилл Круганский. Смешно или страшно."'
+// const book8 = '"Стивен Кинг. Мизери."'
+// const book9 = '"Эдгар По. Очень страшные истории."'
+// const book10 = '"А. Маринина. Безупречная репутация"'
+
+// btn.addEventListener('click', () => {
+//   if (fan.checked && com.checked && det.checked && hor.checked) {
+//     console.log(book5)
+//   } else if (fan.checked && com.checked) {
+//     console.log(book3, book4)
+//   } else if (fan.checked && det.checked) {
+//     console.log(book6)
+//   } else if (com.checked && hor.checked) {
+//     console.log(book7, book10)
+//   } else if (det.checked && hor.checked) {
+//     console.log(book9)
+//   } else if (hor.checked) {
+//     console.log(book8)
+//   } else if (fan.checked) {
+//     console.log(book2)
+//   } else {
+//     console.log(book1)
+//   }
+// })
+
+
+// Циклы
+
+// 1
+
+let cell = document.querySelector('.output__img')
+let btn = document.querySelector('.output__btn')
+
+let s = ''
+// let s = `<img href="/img/car1.jpg">`
 
 btn.addEventListener('click', () => {
-  if (fan.checked && com.checked && det.checked && hor.checked) {
-    console.log(book5)
-  } else if (fan.checked && com.checked) {
-    console.log(book3, book4)
-  } else if (fan.checked && det.checked) {
-    console.log(book6)
-  } else if (com.checked && hor.checked) {
-    console.log(book7, book10)
-  } else if (det.checked && hor.checked) {
-    console.log(book9)
-  } else if (hor.checked) {
-    console.log(book8)
-  } else if (fan.checked) {
-    console.log(book2)
-  } else {
-    console.log(book1)
+  for (let i = 1; i < 9; ++i) {
+    s += `<img href="/img/car${i}.jpg" alt=""><br />`
   }
-
-  // сделать вариант с if (com.check) {
-  //   if (fan.checked && det.checked) {
-      
-  //   }
-  // }
+  cell.innerHTML = s    
 })
