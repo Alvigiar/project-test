@@ -223,29 +223,73 @@ import './main.scss'
 // 50 000 tax 17,5%
 // 70 000 tax 20%
 
-let btn = document.querySelector('.salary__button')
-btn.addEventListener('click', function () {
-  let salary = document.querySelector('.salary__numb').value
-  let summ
-  function tax(salary) {
-    if (salary >= 70000) {
-      summ = (salary * 20) / 100
-      return summ
-    } else if (salary >= 50000) {
-      summ = (salary * 17.5) / 100
-      return summ
-    } else if (salary >= 30000) {
-      summ = (salary * 15) / 100
-      return summ
-    } else if (salary >= 10000) {
-      summ = (salary * 10) / 100
-      return summ
-    } else
-      return ('Это в долларах?')
-  }
-  if (salary >= 10000) {
-    document.body.append(`Плоти налог в размере ${tax(salary)} денег`)
+// let btn = document.querySelector('.salary__button')
+// let summ
+// function tax(salary) {
+//   if (salary >= 70000) {
+//     summ = (salary * 20) / 100
+//     return summ
+//   } else if (salary >= 50000) {
+//     summ = (salary * 17.5) / 100
+//     return summ
+//   } else if (salary >= 30000) {
+//     summ = (salary * 15) / 100
+//     return summ
+//   } else if (salary >= 10000) {
+//     summ = (salary * 10) / 100
+//     return summ
+//   } else
+//     return ('Это в долларах?')
+// }
+// btn.addEventListener('click', function () {
+//   let salary = document.querySelector('.salary__numb').value
+//   if (salary >= 10000) {
+//     document.body.append(`Плоти налог в размере ${tax(salary)} денег`)
+//   } else {
+//     document.body.append('Это в долларах?')
+//   }
+// })
+
+// 7 
+
+const btn = document.querySelector('.composite__btn')
+let fan = document.querySelector('#fan')
+let com = document.querySelector('#com')
+let det = document.querySelector('#det')
+let hor = document.querySelector('#hor')
+const book1 = '"Л.Н. Толстой. Война и мир"'
+const book2 = '"Джоан Роулинг.Гарри Поттер"'
+const book3 = '"Братья Стругацкие. Понедельник начинается в субботу."'
+const book4 = '"Агата Кристи. Вечеринка в Хэллоуин."'
+const book5 = '"Джонатан Страуд. Кричащая лестница."'
+const book6 = '"Диана Маш. Заноза для драконьего военачальника"'
+const book7 = '"Кирилл Круганский. Смешно или страшно."'
+const book8 = '"Стивен Кинг. Мизери."'
+const book9 = '"Эдгар По. Очень страшные истории."'
+const book10 = '"А. Маринина. Безупречная репутация"'
+
+btn.addEventListener('click', () => {
+  if (fan.checked && com.checked && det.checked && hor.checked) {
+    console.log(book5)
+  } else if (fan.checked && com.checked) {
+    console.log(book3, book4)
+  } else if (fan.checked && det.checked) {
+    console.log(book6)
+  } else if (com.checked && hor.checked) {
+    console.log(book7, book10)
+  } else if (det.checked && hor.checked) {
+    console.log(book9)
+  } else if (hor.checked) {
+    console.log(book8)
+  } else if (fan.checked) {
+    console.log(book2)
   } else {
-    document.body.append('Это в долларах?')
+    console.log(book1)
   }
+
+  // сделать вариант с if (com.check) {
+  //   if (fan.checked && det.checked) {
+      
+  //   }
+  // }
 })
