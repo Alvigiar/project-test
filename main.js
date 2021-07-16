@@ -293,15 +293,96 @@ import './main.scss'
 
 // 1
 
-let cell = document.querySelector('.output__img')
-let btn = document.querySelector('.output__btn')
+// let cell = document.querySelector('.output__img')
+// let btn = document.querySelector('.output__btn')
 
-let s = ''
-// let s = `<img href="/img/car1.jpg">`
+// let s = ''
+
+// btn.addEventListener('click', () => {
+//   for (let i = 1; i < 9; ++i) {
+//     s += `<img src="/img/car${i}.jpg" alt=""><br />`
+//   }
+//   cell.innerHTML = s    
+// })
+
+//  2
+
+// let argOne = 1
+// let argTwo = 10
+// let summArg = 0
+
+// while (argOne <= argTwo) {
+//     summArg += argOne
+//     argOne++
+// }
+// console.log(summArg)
+
+// 3 - 4
+
+// const btn = document.querySelector('.btn-show')
+// const stairs = document.querySelector('.stairs')
+
+
+// btn.addEventListener('click', () => {
+//     let step = [100, 200, 300, 400, 500]
+//     for (let value of step) {
+//         value += 100
+//         step.indexOf(0)
+//         console.log(value)
+//     }
+
+//     for (let i = 1; i < 6; i++) {
+//         let stairs = document.createElement('div')
+//         stairs.className = stairs
+//         stairs.innerHTML = `<p style="background-color: rgb(${Math.floor((Math.random() * 255) + 1)},${Math.floor((Math.random() * 255) + 1)},${Math.floor((Math.random() * 255) + 1)}" class="stairs__${i}">Абзац</p>`
+//         document.body.append(stairs)
+//     }
+// })
+
+// Вложенные циклы
+
+// Выведите методом document.write() или console.log() звездочки от 1 до 7 штук в виде треугольника таким образом:
+
+// *
+// **
+// ***
+// ****
+// *****
+// ******
+// *******
+
+// for (let i = 1; i < 8; i++) {
+//     let div = document.createElement('div')
+//     for (let i = 1; i < 8; i++) {
+//     } 
+//     div.textContent = `${i}`
+//     document.body.append(div)
+// }
+
+// Массивы
+
+const btn = document.querySelector('.btn')
 
 btn.addEventListener('click', () => {
-  for (let i = 1; i < 9; ++i) {
-    s += `<img href="/img/car${i}.jpg" alt=""><br />`
-  }
-  cell.innerHTML = s    
+  const separator = ' '
+  let userMassive = document.querySelector('.user__massive').value
+  let massive = userMassive.split(separator)
+  let userValue = document.querySelector('.user__value').value
+  let value = +userValue - 1 // это для массива
+  let userWord = document.querySelector('.user__word').value
+  let corrWord = massive[`${value}`]
+  let newWord = userMassive.replace(`${corrWord}`, `${userWord}`)
+
+  let div = document.createElement('div')
+  div.textContent = newWord
+  document.body.append(div)
+
+  console.log('Предложение:', userMassive)
+  console.log('Массив:', massive)
+  console.log('Число пользователя:', userValue)
+  console.log('Число массива:', value)
+  console.log('Слово пользователя:', userWord)
+  console.log('Слово из массива:', corrWord)
+  console.log('Новое предложение', newWord)
+
 })
