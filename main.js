@@ -361,28 +361,50 @@ import './main.scss'
 
 // Массивы
 
-const btn = document.querySelector('.btn')
+// 1
 
-btn.addEventListener('click', () => {
-  const separator = ' '
-  let userMassive = document.querySelector('.user__massive').value
-  let massive = userMassive.split(separator)
-  let userValue = document.querySelector('.user__value').value
-  let value = +userValue - 1 // это для массива
-  let userWord = document.querySelector('.user__word').value
-  let corrWord = massive[`${value}`]
-  let newWord = userMassive.replace(`${corrWord}`, `${userWord}`)
+// const btn = document.querySelector('.btn')
+// const userInputMassive = document.querySelector('.user__massive')
+// const userInputValue = document.querySelector('.user__value')
+// const userWordInput = document.querySelector('.user__word');
 
-  let div = document.createElement('div')
-  div.textContent = newWord
-  document.body.append(div)
 
-  console.log('Предложение:', userMassive)
-  console.log('Массив:', massive)
-  console.log('Число пользователя:', userValue)
-  console.log('Число массива:', value)
-  console.log('Слово пользователя:', userWord)
-  console.log('Слово из массива:', corrWord)
-  console.log('Новое предложение', newWord)
+// btn.addEventListener('click', () => {
+//   const userMassive = userInputMassive.value
+//   const userValue = userInputValue.value
+//   const userWord = userWordInput.value
 
-})
+//   let massive = userMassive.split(' ')
+//   const replaceIndex = userValue - 1
+//   const corrWord = massive[replaceIndex] // в массиве находим по индексу слово, но зачем эта строка?
+
+//   massive.splice(replaceIndex, 1, userWord)
+//   // изменяемый индекс, кол-во изменяемых значений, новое значение
+
+//   massive = massive.join(' ')
+//   console.log('замена replace', massive);
+
+//   let div = document.createElement('div');
+//   div.textContent = massive;
+//   document.body.append(div);
+// })
+
+
+// fetch
+
+let url = 'https://api.waifu.pics/sfw/megumin' // задали переменную url с ссылкой
+let response = await fetch(url) // задали переменную ответ с асинхронным ответом фечт и вложили в него переменную с ссылкой
+
+let commit = await response.json() // ответ
+let getUrl = commit.url
+
+let div = document.createElement('div')
+div.classList = 'box'
+div.style = 'width: 500px; height: 500px'
+
+let img = document.createElement('img')
+img.style = 'object-fit: fill; width: 100%; height: 100%;'
+img.src = getUrl
+
+document.body.append(div)
+document.querySelector('.box').appendChild(img)
