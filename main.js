@@ -392,19 +392,102 @@ import './main.scss'
 
 // fetch
 
-let url = 'https://api.waifu.pics/sfw/megumin' // задали переменную url с ссылкой
-let response = await fetch(url) // задали переменную ответ с асинхронным ответом фечт и вложили в него переменную с ссылкой
+// let url = 'https://api.waifu.pics/sfw/megumin' // задали переменную url с ссылкой
+// let response = await fetch(url) // задали переменную ответ с асинхронным ответом фечт и вложили в него переменную с ссылкой
 
-let commit = await response.json() // ответ
-let getUrl = commit.url
+// let commit = await response.json() // ответ
+// let getUrl = commit.url
 
-let div = document.createElement('div')
-div.classList = 'box'
-div.style = 'width: 500px; height: 500px'
+// create div element
+// let div = document.createElement('div')
+// div.classList = 'box'
+// div.style = 'width: 500px; height: 500px'
 
-let img = document.createElement('img')
-img.style = 'object-fit: fill; width: 100%; height: 100%;'
-img.src = getUrl
+// create image element
+// let img = document.createElement('img')
+// img.style = 'object-fit: fill; width: 100%; height: 100%;'
+// img.src = getUrl
 
-document.body.append(div)
-document.querySelector('.box').appendChild(img)
+// document.body.append(div)
+// document.querySelector('.box').appendChild(img)
+
+// fetch 2
+
+let btnLoadImage = document.createElement('input')
+btnLoadImage.type = 'button'
+btnLoadImage.value = 'Еще Мегумин!'
+btnLoadImage.style = 'position: fixed'
+document.body.prepend(btnLoadImage)
+
+let btnLoad = document.createElement('input')
+btnLoad.type = 'button'
+btnLoad.value = 'А может лучше ..?'
+btnLoad.style = 'position: fixed; top: 30px'
+document.body.prepend(btnLoad)
+
+btnLoad.addEventListener('click', async () => {
+  for (let i = 0; i < 30; i++) {
+    let url = 'https://api.waifu.pics/sfw/bonk'
+    let response = await fetch(url)
+    let commit = await response.json()
+    let getUrl = commit.url
+
+    console.log(`Load image ${i + 1}:`, getUrl)
+
+    let div = document.createElement('div')
+    div.classList = 'box'
+    div.style = 'width: 500px; height: 500px'
+
+    let img = document.createElement('img')
+    img.style = 'object-fit: fill; width: 100%; height: 100%;'
+    img.src = getUrl
+
+    document.body.append(div)
+    document.querySelector('.box').appendChild(img)
+  }
+})
+
+btnLoadImage.addEventListener('click', async () => {
+  for (let i = 0; i < 30; i++) {
+    let url = 'https://api.waifu.pics/sfw/megumin'
+    let response = await fetch(url)
+    let commit = await response.json()
+    let getUrl = commit.url
+
+    console.log(`Load image ${i + 1}:`, getUrl)
+
+    let div = document.createElement('div')
+    div.classList = 'box'
+    div.style = 'width: 500px; height: 500px'
+
+    let img = document.createElement('img')
+    img.style = 'object-fit: fill; width: 100%; height: 100%;'
+    img.src = getUrl
+
+    document.body.append(div)
+    document.querySelector('.box').appendChild(img)
+  }
+})
+
+async function image() {
+  for (let i = 0; i < 30; i++) {
+    let url = 'https://api.waifu.pics/sfw/megumin'
+    let response = await fetch(url)
+    let commit = await response.json()
+    let getUrl = commit.url
+
+    console.log(`When loading ${i + 1}:`, getUrl)
+
+    let div = document.createElement('div')
+    div.classList = 'box'
+    div.style = 'width: 500px; height: 500px'
+
+    let img = document.createElement('img')
+    img.style = 'object-fit: fill; width: 100%; height: 100%;'
+    img.src = getUrl
+
+    document.body.append(div)
+    document.querySelector('.box').appendChild(img)
+  }
+}
+image()
