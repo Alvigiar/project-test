@@ -376,7 +376,6 @@ import './main.scss'
 
 //   let massive = userMassive.split(' ')
 //   const replaceIndex = userValue - 1
-//   const corrWord = massive[replaceIndex] // в массиве находим по индексу слово, но зачем эта строка?
 
 //   massive.splice(replaceIndex, 1, userWord)
 //   // изменяемый индекс, кол-во изменяемых значений, новое значение
@@ -413,81 +412,110 @@ import './main.scss'
 
 // fetch 2
 
-let btnLoadImage = document.createElement('input')
-btnLoadImage.type = 'button'
-btnLoadImage.value = 'Еще Мегумин!'
-btnLoadImage.style = 'position: fixed'
-document.body.prepend(btnLoadImage)
+// let btnLoadImage = document.createElement('input')
+// btnLoadImage.type = 'button'
+// btnLoadImage.value = 'Еще Мегумин!'
+// btnLoadImage.style = 'position: fixed'
+// document.body.prepend(btnLoadImage)
 
-let btnLoad = document.createElement('input')
-btnLoad.type = 'button'
-btnLoad.value = 'А может лучше ..?'
-btnLoad.style = 'position: fixed; top: 30px'
-document.body.prepend(btnLoad)
+// let btnLoad = document.createElement('input')
+// btnLoad.type = 'button'
+// btnLoad.value = 'А может лучше ..?'
+// btnLoad.style = 'position: fixed; top: 30px'
+// document.body.prepend(btnLoad)
 
-btnLoad.addEventListener('click', async () => {
-  for (let i = 0; i < 30; i++) {
-    let url = 'https://api.waifu.pics/sfw/bonk'
-    let response = await fetch(url)
-    let commit = await response.json()
-    let getUrl = commit.url
+// btnLoad.addEventListener('click', async () => {
+//   for (let i = 0; i < 30; i++) {
+//     let url = 'https://api.waifu.pics/sfw/bonk'
+//     let response = await fetch(url)
+//     let commit = await response.json()
+//     let getUrl = commit.url
 
-    console.log(`Load image ${i + 1}:`, getUrl)
+//     console.log(`Load image ${i + 1}:`, getUrl)
 
-    let div = document.createElement('div')
-    div.classList = 'box'
-    div.style = 'width: 500px; height: 500px'
+//     let div = document.createElement('div')
+//     div.classList = 'box'
+//     div.style = 'width: 500px; height: 500px'
 
-    let img = document.createElement('img')
-    img.style = 'object-fit: fill; width: 100%; height: 100%;'
-    img.src = getUrl
+//     let img = document.createElement('img')
+//     img.style = 'object-fit: fill; width: 100%; height: 100%;'
+//     img.src = getUrl
 
-    document.body.append(div)
-    document.querySelector('.box').appendChild(img)
-  }
-})
+//     document.body.append(div)
+//     document.querySelector('.box').appendChild(img)
+//   }
+// })
 
-btnLoadImage.addEventListener('click', async () => {
-  for (let i = 0; i < 30; i++) {
-    let url = 'https://api.waifu.pics/sfw/megumin'
-    let response = await fetch(url)
-    let commit = await response.json()
-    let getUrl = commit.url
+// btnLoadImage.addEventListener('click', async () => {
+//   for (let i = 0; i < 30; i++) {
+//     let url = 'https://api.waifu.pics/sfw/megumin'
+//     let response = await fetch(url)
+//     let commit = await response.json()
+//     let getUrl = commit.url
 
-    console.log(`Load image ${i + 1}:`, getUrl)
+//     console.log(`Load image ${i + 1}:`, getUrl)
 
-    let div = document.createElement('div')
-    div.classList = 'box'
-    div.style = 'width: 500px; height: 500px'
+//     let div = document.createElement('div')
+//     div.classList = 'box'
+//     div.style = 'width: 500px; height: 500px'
 
-    let img = document.createElement('img')
-    img.style = 'object-fit: fill; width: 100%; height: 100%;'
-    img.src = getUrl
+//     let img = document.createElement('img')
+//     img.style = 'object-fit: fill; width: 100%; height: 100%;'
+//     img.src = getUrl
 
-    document.body.append(div)
-    document.querySelector('.box').appendChild(img)
-  }
-})
+//     document.body.append(div)
+//     document.querySelector('.box').appendChild(img)
+//   }
+// })
 
-async function image() {
-  for (let i = 0; i < 30; i++) {
-    let url = 'https://api.waifu.pics/sfw/megumin'
-    let response = await fetch(url)
-    let commit = await response.json()
-    let getUrl = commit.url
+// async function image() {
+//   for (let i = 0; i < 30; i++) {
+//     let url = 'https://api.waifu.pics/sfw/megumin'
+//     let response = await fetch(url)
+//     let commit = await response.json()
+//     let getUrl = commit.url
 
-    console.log(`When loading ${i + 1}:`, getUrl)
+//     console.log(`When loading ${i + 1}:`, getUrl)
 
-    let div = document.createElement('div')
-    div.classList = 'box'
-    div.style = 'width: 500px; height: 500px'
+//     let div = document.createElement('div')
+//     div.classList = 'box'
+//     div.style = 'width: 500px; height: 500px'
 
-    let img = document.createElement('img')
-    img.style = 'object-fit: fill; width: 100%; height: 100%;'
-    img.src = getUrl
+//     let img = document.createElement('img')
+//     img.style = 'object-fit: fill; width: 100%; height: 100%;'
+//     img.src = getUrl
 
-    document.body.append(div)
-    document.querySelector('.box').appendChild(img)
-  }
+//     document.body.append(div)
+//     document.querySelector('.box').appendChild(img)
+//   }
+// }
+// image()
+
+// fetch 3 
+
+let btn = document.querySelector('.btn')
+let box = []
+console.log('box', box)
+
+async function getImage(arr) {
+  let data = {exclude: arr}
+  let response = await fetch('https://api.waifu.pics/many/sfw/megumin', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  let content = await response.json()
+
+  let massive = content.files
+
+  // massive.forEach(item => console.log(item))
+  massive.forEach(item => arr.push(item))
+
 }
-image()
+
+btn.addEventListener('click', function () {
+  getImage(box)
+  console.log('box event', box)
+})
