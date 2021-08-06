@@ -189,7 +189,7 @@ import './main.scss'
 // })
 // нет удаления предыдущего элемента
 
-// 3 
+// 3
 
 // const buttonRoll = document.querySelector('.random-number__random-roll')
 // buttonRoll.addEventListener('click', function () {
@@ -250,7 +250,7 @@ import './main.scss'
 //   }
 // })
 
-// 7 
+// 7
 
 // const btn = document.querySelector('.composite__btn')
 // let fan = document.querySelector('#fan')
@@ -302,7 +302,7 @@ import './main.scss'
 //   for (let i = 1; i < 9; ++i) {
 //     s += `<img src="/img/car${i}.jpg" alt=""><br />`
 //   }
-//   cell.innerHTML = s    
+//   cell.innerHTML = s
 // })
 
 //  2
@@ -354,7 +354,7 @@ import './main.scss'
 // for (let i = 1; i < 8; i++) {
 //     let div = document.createElement('div')
 //     for (let i = 1; i < 8; i++) {
-//     } 
+//     }
 //     div.textContent = `${i}`
 //     document.body.append(div)
 // }
@@ -491,31 +491,52 @@ import './main.scss'
 // }
 // image()
 
-// fetch 3 
+// fetch 3
 
-let btn = document.querySelector('.btn')
-let box = []
-console.log('box', box)
+// let btn = document.querySelector('.btn')
+// let box = []
+// console.log('box', box)
 
-async function getImage(arr) {
-  let data = {exclude: arr}
-  let response = await fetch('https://api.waifu.pics/many/sfw/megumin', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  let content = await response.json()
+// async function getImage(arr) {
+//   let data = {exclude: arr}
+//   let response = await fetch('https://api.waifu.pics/many/sfw/megumin', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(data)
+//   })
+//   let content = await response.json()
 
-  let massive = content.files
+//   let massive = content.files
 
-  // massive.forEach(item => console.log(item))
-  massive.forEach(item => arr.push(item))
+//   // massive.forEach(item => console.log(item))
+//   massive.forEach(item => arr.push(item))
+
+// }
+
+// btn.addEventListener('click', function () {
+//   getImage(box)
+//   console.log('box event', box)
+// })
+
+// search
+
+async function getFile() {
+  let response = await fetch('./left/search.geojson')
+  let commit = await response.json()
+  let massive = commit.features
+
+  for (let i = 0; i < massive.length; i++) {
+    const properties = massive[i].properties.description;
+    const geometry = massive[i].geometry.coordinates;
+    if (geometry.length == 2) {
+      console.log('Адрес: ', properties , geometry)
+    } else {
+      console.log('Бесплатная доставка')
+    }
+  }
 
 }
 
-btn.addEventListener('click', function () {
-  getImage(box)
-  console.log('box event', box)
-})
+getFile()
