@@ -522,21 +522,73 @@ import './main.scss'
 
 // search
 
-async function getFile() {
+// async function getFile() {
+//   let response = await fetch('./left/search.geojson')
+//   let commit = await response.json()
+//   let massive = commit.features
+
+//   for (let i = 0; i < massive.length; i++) {
+//     const properties = massive[i].properties.description;
+//     const geometry = massive[i].geometry.coordinates;
+//     if (geometry.length == 2) {
+//       console.log('Адрес: ', properties , geometry)
+//     } else {
+//       console.log('Бесплатная доставка')
+//     }
+//   }
+
+// }
+
+// getFile()
+
+// search update
+
+// async function getFiles() {
+//   let response = await fetch('./left/search.geojson')
+//   let commit = await response.json()
+//   let massive = commit.features
+//   sortInfo(massive)
+// }
+
+// function sortInfo(massive) {
+//   massive.forEach(element => {
+//     const properties = massive[element.id].properties.description
+//     const geometry = massive[element.id].geometry.coordinates
+//     if (geometry.length == 2) {
+//       console.log('Address: ', properties, geometry)
+//     } else {
+//       console.log('Free')
+//     }
+//   })
+// }
+// getFiles()
+
+// search up
+
+async function getFiles() {
   let response = await fetch('./left/search.geojson')
   let commit = await response.json()
   let massive = commit.features
-
-  for (let i = 0; i < massive.length; i++) {
-    const properties = massive[i].properties.description;
-    const geometry = massive[i].geometry.coordinates;
-    if (geometry.length == 2) {
-      console.log('Адрес: ', properties , geometry)
-    } else {
-      console.log('Бесплатная доставка')
-    }
-  }
-
+  sortInfo(massive)
 }
 
-getFile()
+function sortInfo(massive) {
+  massive.forEach(element => {
+    const properties = massive[element.id].properties.description
+    const geometry = massive[element.id].geometry.coordinates
+    const propMass = properties
+    let splitMass = propMass.split(' ')
+    for (let i = 0; i <= 3; i++) {
+      let popMass = splitMass.pop()
+    }
+    let joinMass = splitMass.join(' ')
+
+    if (geometry.length == 2) {
+      console.log(`Address: ${joinMass}
+Geometry: ${geometry}`)
+    } else {
+      console.log('Free')
+    }
+  })
+}
+getFiles()
