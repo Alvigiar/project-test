@@ -574,8 +574,8 @@ async function getFiles() {
 
 function sortInfo(massive) {
   massive.forEach(element => {
-    const properties = massive[element.id].properties.description
-    const geometry = massive[element.id].geometry.coordinates
+    const properties = element.properties.description
+    const geometry = element.geometry.coordinates
     const propMass = properties
     let splitMass = propMass.split(' ')
     for (let i = 0; i <= 3; i++) {
