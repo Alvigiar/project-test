@@ -565,6 +565,36 @@ import './main.scss'
 
 // search up
 
+// async function getFiles() {
+//   let response = await fetch('./left/search.geojson')
+//   let commit = await response.json()
+//   let massive = commit.features
+//   sortInfo(massive)
+// }
+
+// function sortInfo(massive) {
+//   massive.forEach(element => {
+//     const properties = element.properties.description
+//     const geometry = element.geometry.coordinates
+//     const propMass = properties
+//     let splitMass = propMass.split(' ')
+//     for (let i = 0; i <= 3; i++) {
+//       let popMass = splitMass.pop()
+//     }
+//     let joinMass = splitMass.join(' ')
+
+//     if (geometry.length == 2) {
+//       console.log(`Address: ${joinMass}
+// Geometry: ${geometry}`)
+//     } else {
+//       console.log('Free')
+//     }
+//   })
+// }
+// getFiles()
+
+// next
+
 async function getFiles() {
   let response = await fetch('./left/search.geojson')
   let commit = await response.json()
@@ -577,11 +607,14 @@ function sortInfo(massive) {
     const properties = element.properties.description
     const geometry = element.geometry.coordinates
     const propMass = properties
-    let splitMass = propMass.split(' ')
+    const splitMass = propMass.split(' ')
+    const filterMass = splitMass.filter(function (elem) {
+      return elem != ''
+    })
     for (let i = 0; i <= 3; i++) {
-      let popMass = splitMass.pop()
+      const popMass = filterMass.pop()
     }
-    let joinMass = splitMass.join(' ')
+    const joinMass = filterMass.join(' ')
 
     if (geometry.length == 2) {
       console.log(`Address: ${joinMass}
